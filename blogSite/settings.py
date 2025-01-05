@@ -10,6 +10,11 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'authService.User'
 
+AUTHENTICATION_BACKENDS = [
+    'authService.backend.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 INSTALLED_APPS = [
     'authService',
     'django.contrib.admin',
