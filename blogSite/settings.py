@@ -8,6 +8,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'authService.User'
+
 INSTALLED_APPS = [
     'authService',
     'django.contrib.admin',
