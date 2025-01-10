@@ -9,7 +9,7 @@ DATABASE_URL = "postgresql://neondb_owner:IES9l5xRhqfs@ep-patient-scene-a86m0lg5
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 AUTH_USER_MODEL = 'authService.User'
 
