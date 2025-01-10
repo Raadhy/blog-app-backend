@@ -1,13 +1,12 @@
 #!/bin/bash
 
 echo "Updating pip..."
-python3.12 pip install -U pip
+python -m pip install -U pip
 
 # Install dependencies
-
 echo "Installing project dependencies..."
-python3.12 -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
-# Collect staticfiles
-echo "Collect static..."
-python3.12 manage.py collectstatic --noinput --clear
+# Collect static files
+echo "Collecting static files..."
+python manage.py collectstatic --noinput --clear --output staticfiles_build
