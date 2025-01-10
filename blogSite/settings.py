@@ -1,8 +1,10 @@
 from pathlib import Path
+from urllib.parse import urlparse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-od3rd23u+*9rnbav62tjn0*j+(58v#q^x1=h@wy1q=ioh))=r!'
+DATABASE_URL = "postgresql://neondb_owner:IES9l5xRhqfs@ep-patient-scene-a86m0lg5.eastus2.azure.neon.tech/neondb?sslmode=require"
 
 DEBUG = True
 
@@ -55,12 +57,21 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'blogSite.wsgi.application'
+url = urlparse(DATABASE_URL)
 
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': url.path[1:],  # Remove the leading slash
+        'USER': url.username,
+        'PASSWORD': url.password,
+        'HOST': url.hostname,
+        'PORT': url.port,
     }
 }
 
