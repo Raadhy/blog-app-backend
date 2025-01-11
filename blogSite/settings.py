@@ -20,6 +20,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 INSTALLED_APPS = [
+    'drf_yasg',
     'authService',
     "postService",
     'django.contrib.admin',

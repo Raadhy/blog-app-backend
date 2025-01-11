@@ -10,7 +10,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     meta_title = models.CharField(max_length=100)
     content = models.TextField()
-    thumbnail = models.ImageField(upload_to='post/thumbnail', default='post/thumbnail/default.jpg')
+    thumbnail = models.ImageField(upload_to='post/thumbnail', default='https://cdn.pixabay.com/photo/2015/11/03/08/58/post-1019869_1280.jpg')
     slug = models.SlugField(max_length=264, unique=True, blank=True)
     summary = models.TextField(null=True, blank=True)
     status = models.CharField(choices=STATUS_CHOICES, default='draft', max_length=10)
