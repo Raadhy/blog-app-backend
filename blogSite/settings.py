@@ -21,6 +21,7 @@ AUTHENTICATION_BACKENDS = [
 
 INSTALLED_APPS = [
     'authService',
+    "postService",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -66,18 +67,18 @@ url = urlparse(DATABASE_URL)
 
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': url.path[1:],  # Remove the leading slash
-        'USER': url.username,
-        'PASSWORD': url.password,
-        'HOST': url.hostname,
-        'PORT': url.port,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': url.path[1:],  # Remove the leading slash
+    #     'USER': url.username,
+    #     'PASSWORD': url.password,
+    #     'HOST': url.hostname,
+    #     'PORT': url.port,
+    # }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -108,6 +109,10 @@ TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 
 USE_TZ = True
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
