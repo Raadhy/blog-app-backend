@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post
+from .models import Post, Comment
 
 class PostSerializer(serializers.ModelSerializer):
     frontend_url = serializers.SerializerMethodField()
@@ -15,3 +15,9 @@ class PostSerializer(serializers.ModelSerializer):
 
     def get_frontend_url(self, obj):
         return obj.get_frontend_url()
+    
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'
